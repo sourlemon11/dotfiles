@@ -1,4 +1,4 @@
-(provide '_user-init)
+(provide '_user-init) ; ~/.config/spacemacs/_user-init.el
 (require '_user-data) ; ~/.config/spacemacs/_user-data.el
 
 ;; to fix random freezes (find issue inside ~/.emacs.d/.cache/savehist)
