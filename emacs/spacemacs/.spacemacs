@@ -198,6 +198,7 @@ This function should only modify configuration layer settings."
                                     grizzl
                                     counsel
                                     alert
+                                    nlinum
                                     writeroom-mode
                                     smex
                                     smeargle; highlight recently edited code by git
