@@ -374,7 +374,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-helm-no-header t
    ;; define the position to display `helm', options are `bottom', `top',
    ;; `left', or `right'. (default 'bottom)
-   dotspacemacs-helm-position 'right
+   dotspacemacs-helm-position 'bottom
    ;; Controls fuzzy matching in helm. If set to `always', force fuzzy matching
    ;; in all non-asynchronous sources. If set to `source', preserve individual
    ;; source settings. Else, disable fuzzy matching in all sources.
