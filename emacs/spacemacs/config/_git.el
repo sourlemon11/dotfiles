@@ -5,7 +5,8 @@
        git-gutter+-added-sign "+"    ;; multiple character is OK
        git-gutter+-deleted-sign "-"
        left-fringe-width 10
-       user/magit-log-arguments '("--graph" "--color"))
+       user/magit-log-arguments '("--graph" "--color")
+       vc-follow-symlinks t)
 
 (spacemacs/set-leader-keys "gg" 'magit-dispatch-popup)
 
