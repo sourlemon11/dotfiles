@@ -29,141 +29,6 @@ This function should only modify configuration layer settings."
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
-   ;; List of configuration layers to load.
-   dotspacemacs-configuration-layers
-   '(systemd
-     (helm
-      :variables
-      helm-ag-command-option "-S"
-      :config)
-     ;; programming tools
-     ;; ivy
-     gtags
-     (git
-      :variables
-      ;; magit-auto-revert-mode t
-      ;; magit-log-select-margin (list (t age-abbreviated magit-log-margin-width t 10))
-      magit-refs-local-branch-format "%4c")
-     ;; :config
-     ;; (define-key magit-mode-map (kbd "M-w") 'spacemacs/rotate-windows)
-     ;; ("C-h" . evil-window-left)
-     ;; ("C-k" . evil-window-up)
-     ;; ("M-w" . spacemacs/rotate-windows)
-     ;; ("C-h" . evil-window-left)
-     ;; ("C-k" . evil-window-up)
-     ;; ("M-w" . spacemacs/rotate-windows)
-     ;; ("C-l" . evil-window-right)
-     ;; ("M-w" . spacemacs/rotate-windows)
-     ;; (define-key magit-log-mode-map  (kbd "C-h") 'evil-window-left)
-     ;; (define-key magit-refs-mode-map (kbd "C-h") 'evil-window-left)
-     ;; (define-key magit-log-mode-map  (kbd "C-k") 'evil-window-up)
-     ;; (define-key magit-refs-mode-map (kbd "C-k") 'evil-window-up)
-     ;; (define-key magit-mode-map      (kbd "C-l") 'evil-window-right)
-     ;; (define-key magit-log-mode-map  (kbd "M-w") 'spacemacs/rotate-windows)
-     ;; (define-key magit-refs-mode-map (kbd "M-w") 'spacemacs/rotate-windows)
-     ;; (define-key magit-mode-map      (kbd "M-w") 'spacemacs/rotate-windows)
-     ;; (define-key magit-log-mode-map  (kbd "M-w") 'spacemacs/rotate-windows)
-     (version-control
-      :variables
-      version-control-global-margin t
-      version-control-diff-tool 'git-gutter+
-      version-control-diff-side 'left)
-     ;; diff-hl-side 'left
-     semantic ; IDE like features (refactoring)
-     imenu-list ; For function reference on sidebar
-     parinfer ; auto indents lisp
-     ;; languages
-     ;; lua
-     emacs-lisp
-     markdown
-     c-c++
-     sql
-     ;; (latex
-     ;;  :variables
-     ;;  latex-build-command "LaTeX"
-     ;;  TeX-view-program-selection '((output-pdf "Zathura" "zathura %o" "zathura")))
-     javascript
-     java
-     yaml
-     colors
-     (python
-      :variables
-      python-enable-yapf-format-on-save t
-      python-sort-imports-on-save t
-      flycheck-python-pycompile-executable "python3"
-      python-shell-interpreter "python3"
-      python-shell-interpreter-args '-i
-      python-test-runner 'pytest
-      python-indent-offset 4
-      :config
-      (define-key python-mode-map (kbd "C-j") 'evil-window-down)
-      (define-key python-mode-map (kbd "C-h") 'evil-window-left)
-      (define-key python-mode-map (kbd "C-k") 'evil-window-up)
-      (define-key python-mode-map (kbd "C-l") 'evil-window-right)
-      (define-key inferior-python-mode-map (kbd "C-j") 'evil-window-down)
-      (define-key inferior-python-mode-map (kbd "C-h") 'evil-window-left)
-      (define-key inferior-python-mode-map (kbd "C-k") 'evil-window-up)
-      (define-key inferior-python-mode-map (kbd "C-l") 'evil-window-right))
-     ;; html
-     ;; csv
-     shell-scripts
-     (dash
-      :variables
-      helm-dash-docset-newpath (expand-file-name "~/.docsets"))
-     ;; (add-to-list 'zeal-at-point-mode-alist '(python-mode . "python"))
-     ;; apps
-     ;; mu4e
-     ;; elfeed
-     (org :variables
-          org-agenda-files (list
-                            (expand-file-name "~/Dropbox/org/agenda.org"))
-          org-capture-templates
-          '(("r" "respond ro email (mu4e)"
-             entry (file+headline malb/inbox-org "Email")
-             "* REPLY to [[mailto:%:fromaddress][%:fromname]] on %a\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+1d\"))\n%U\n\n"
-             :immediate-finish t
-             :prepend t)
-
-            ("f" "file email (mu4e)"
-             entry (file+headline malb/inbox-org "Email")
-             "* %a by [[mailto:%:fromaddress][%:fromname]]\n%U\n\n%i%?\n"
-             :immediate-finish nil
-             :prepend nil)
-            ("pn" "programming language notes"
-             entry (function (
-                              (file-name-extension (buffer-file-name))))))
-          org-capture-templates-contexts
-          '(("f" ((in-mode . "python-mode"))))
-          org-export-backends (quote (ascii html icalendar latex md odt)))
-     ;; Emacs Utilities
-     (ranger :variables
-             ranger-ignored-extensions '("mkv" "iso" "mp4")
-             ranger-max-preview-size 10
-             ranger-show-preview t)
-     ;; nginx
-     fasd
-     ;; pdf-tools
-     (shell
-      :variables
-      shell-default-height 30
-      shell-default-position 'bottom
-      shell-default-shell 'eshell)
-     spell-checking ; error, seems to be overiding dict val to nil
-     syntax-checking
-     (auto-completion :variables
-                      auto-completion-complete-with-key-sequence-delay 1.2
-                      auto-completion-return-key-behavior 'complete
-                      auto-completion-tab-key-behavior 'cycle
-                      auto-completion-complete-with-key-sequence nil
-                      auto-completion-private-snippets-directory "~/.emacs.d/private/snippets/"
-                      auto-completion-enable-snippets-in-popup t
-                      auto-completion-enable-help-tooltip t
-                      yas-also-auto-indent-first-line t
-                      yas-indent-line 'fixed)
-     ;; private ;;
-     ;; tabbar
-     log
-     smarttab)
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
@@ -219,7 +84,164 @@ This function should only modify configuration layer settings."
    ;; `used-but-keep-unused' installs only the used packages but won't uninstall
    ;; them if they become unused. `all' installs *all* packages supported by
    ;; Spacemacs and never uninstall them. (default is `used-only')
-   dotspacemacs-install-packages 'used-but-keep-unused))
+   dotspacemacs-install-packages 'used-but-keep-unused)
+
+  (cond
+   ((eq system-type 'gnu/linux)
+    (setq-default
+     ;; List of configuration layers to load.
+     dotspacemacs-configuration-layers
+     '(systemd
+       (helm
+        :variables
+        helm-ag-command-option "-S"
+        :config)
+       ;; programming tools
+       ;; ivy
+       gtags
+       (git
+        :variables
+        ;; magit-auto-revert-mode t
+        ;; magit-log-select-margin (list (t age-abbreviated magit-log-margin-width t 10))
+        magit-refs-local-branch-format "%4c")
+       ;; :config
+       ;; (define-key magit-mode-map (kbd "M-w") 'spacemacs/rotate-windows)
+       ;; ("C-h" . evil-window-left)
+       ;; ("C-k" . evil-window-up)
+       ;; ("M-w" . spacemacs/rotate-windows)
+       ;; ("C-h" . evil-window-left)
+       ;; ("C-k" . evil-window-up)
+       ;; ("M-w" . spacemacs/rotate-windows)
+       ;; ("C-l" . evil-window-right)
+       ;; ("M-w" . spacemacs/rotate-windows)
+       ;; (define-key magit-log-mode-map  (kbd "C-h") 'evil-window-left)
+       ;; (define-key magit-refs-mode-map (kbd "C-h") 'evil-window-left)
+       ;; (define-key magit-log-mode-map  (kbd "C-k") 'evil-window-up)
+       ;; (define-key magit-refs-mode-map (kbd "C-k") 'evil-window-up)
+       ;; (define-key magit-mode-map      (kbd "C-l") 'evil-window-right)
+       ;; (define-key magit-log-mode-map  (kbd "M-w") 'spacemacs/rotate-windows)
+       ;; (define-key magit-refs-mode-map (kbd "M-w") 'spacemacs/rotate-windows)
+       ;; (define-key magit-mode-map      (kbd "M-w") 'spacemacs/rotate-windows)
+       ;; (define-key magit-log-mode-map  (kbd "M-w") 'spacemacs/rotate-windows)
+       (version-control
+        :variables
+        version-control-global-margin t
+        version-control-diff-tool 'git-gutter+
+        version-control-diff-side 'left)
+       ;; diff-hl-side 'left
+       semantic ; IDE like features (refactoring)
+       imenu-list ; For function reference on sidebar
+       parinfer ; auto indents lisp
+       ;; languages
+       ;; lua
+       emacs-lisp
+       markdown
+       c-c++
+       sql
+       ;; (latex
+       ;;  :variables
+       ;;  latex-build-command "LaTeX"
+       ;;  TeX-view-program-selection '((output-pdf "Zathura" "zathura %o" "zathura")))
+       javascript
+       java
+       yaml
+       colors
+       (python
+        :variables
+        python-enable-yapf-format-on-save t
+        python-sort-imports-on-save t
+        flycheck-python-pycompile-executable "python3"
+        python-shell-interpreter "python3"
+        python-shell-interpreter-args '-i
+        python-test-runner 'pytest
+        python-indent-offset 4
+        :config
+        (define-key python-mode-map (kbd "C-j") 'evil-window-down)
+        (define-key python-mode-map (kbd "C-h") 'evil-window-left)
+        (define-key python-mode-map (kbd "C-k") 'evil-window-up)
+        (define-key python-mode-map (kbd "C-l") 'evil-window-right)
+        (define-key inferior-python-mode-map (kbd "C-j") 'evil-window-down)
+        (define-key inferior-python-mode-map (kbd "C-h") 'evil-window-left)
+        (define-key inferior-python-mode-map (kbd "C-k") 'evil-window-up)
+        (define-key inferior-python-mode-map (kbd "C-l") 'evil-window-right))
+       ;; html
+       ;; csv
+       shell-scripts
+       (dash
+        :variables
+        helm-dash-docset-newpath (expand-file-name "~/.docsets"))
+       ;; (add-to-list 'zeal-at-point-mode-alist '(python-mode . "python"))
+       ;; apps
+       ;; mu4e
+       ;; elfeed
+       (org :variables
+            org-agenda-files (list
+                              (expand-file-name "~/Dropbox/org/agenda.org"))
+            org-capture-templates
+            '(("r" "respond ro email (mu4e)"
+               entry (file+headline malb/inbox-org "Email")
+               "* REPLY to [[mailto:%:fromaddress][%:fromname]] on %a\nDEADLINE: %(org-insert-time-stamp (org-read-date nil t \"+1d\"))\n%U\n\n"
+               :immediate-finish t
+               :prepend t)
+
+              ("f" "file email (mu4e)"
+               entry (file+headline malb/inbox-org "Email")
+               "* %a by [[mailto:%:fromaddress][%:fromname]]\n%U\n\n%i%?\n"
+               :immediate-finish nil
+               :prepend nil)
+              ("pn" "programming language notes"
+               entry (function (
+                                (file-name-extension (buffer-file-name))))))
+            org-capture-templates-contexts
+            '(("f" ((in-mode . "python-mode"))))
+            org-export-backends (quote (ascii html icalendar latex md odt)))
+       ;; Emacs Utilities
+       (ranger :variables
+               ranger-ignored-extensions '("mkv" "iso" "mp4")
+               ranger-max-preview-size 10
+               ranger-show-preview t)
+       ;; nginx
+       fasd
+       ;; pdf-tools
+       (shell
+        :variables
+        shell-default-height 30
+        shell-default-position 'bottom
+        shell-default-shell 'eshell)
+       spell-checking ; error, seems to be overiding dict val to nil
+       syntax-checking
+       (auto-completion :variables
+                        auto-completion-complete-with-key-sequence-delay 1.2
+                        auto-completion-return-key-behavior 'complete
+                        auto-completion-tab-key-behavior 'cycle
+                        auto-completion-complete-with-key-sequence nil
+                        auto-completion-private-snippets-directory "~/.emacs.d/private/snippets/"
+                        auto-completion-enable-snippets-in-popup t
+                        auto-completion-enable-help-tooltip t
+                        yas-also-auto-indent-first-line t
+                        yas-indent-line 'fixed)
+       ;; private ;;
+       ;; tabbar
+       log
+       smarttab)))
+   ((eq system-type 'gnu/linux)
+    (setq-default
+     ;; List of configuration layers to load.
+     dotspacemacs-configuration-layers
+     '(systemd
+       color
+       (helm
+        :variables
+        helm-ag-command-option "-S"
+        :config)
+       (version-control
+        :variables
+        version-control-global-margin t
+        version-control-diff-tool 'git-gutter+
+        version-control-diff-side 'left)
+       emacs-lisp
+       org))))
+  )
 
 (defun dotspacemacs/init ()
   "Initialization:
