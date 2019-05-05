@@ -68,13 +68,13 @@
 (global-set-key [double-mouse-7] 'image-forward-hscroll)
 
 ;; lisp movement
-(defun user/lisp-keys ()
-  (define-key evil-insert-state-map (kbd "C-h") 'sp-backward-symbol)
-  (define-key evil-insert-state-map (kbd "C-l") 'sp-forward-symbol)
-  (define-key evil-insert-state-map (kbd "C-k") 'sp-backward-sexp)
-  (define-key evil-insert-state-map (kbd "C-j") 'sp-forward-sexp))
+;; (defun user/lisp-keys ()
+;;   (define-key evil-insert-state-map (kbd "C-h") 'sp-backward-symbol)
+;;   (define-key evil-insert-state-map (kbd "C-l") 'sp-forward-symbol)
+;;   (define-key evil-insert-state-map (kbd "C-k") 'sp-backward-sexp)
+;;   (define-key evil-insert-state-map (kbd "C-j") 'sp-forward-sexp))
 
-(add-hook 'emacs-lisp-mode-hook 'user/lisp-keys)
+;; (add-hook 'emacs-lisp-mode-hook 'user/lisp-keys)
 
 ;; Searching bindings
 (define-key evil-normal-state-map (kbd "C-/") 'helm-swoop)
