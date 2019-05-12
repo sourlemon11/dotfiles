@@ -101,6 +101,7 @@ alias jj="zz"
 alias o="xdg-open 2>/dev/null"
 alias emacskill="emacsclient -e '(kill-emacs)'"
 alias emacskillsave="emacsclient -e '(client-save-kill-emacs)'"
+alias reddit="rtv"
 
 # Git abbreviation
 abbr -a gad "git add"
