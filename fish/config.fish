@@ -31,7 +31,7 @@ source $OMF_PATH/init.fish
 # Other ENV VAR
 set -g SHELL "/usr/bin/fish"
 set -gx CHEATCOLORS true
-set -g EDITOR "emacsclient -c"
+set -g EDITOR "nvim"
 set -g ALTERNATE_EDITOR emacs
 set -g VISUAL "emacsclient -c"
 # set -g FZF_DEFAULT_OPTS '--bind alt-[:down,alt-]:up'
