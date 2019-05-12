@@ -90,7 +90,6 @@ alias define="sdcv --color"
 alias s2e="dict -d fd-spa-eng"
 alias e2s="dict -d fd-eng-spa"
 alias syn="dict -d moby-thesaurus"
-alias gif="sxiv -a "
 # alias sd="sudo shutdown now"
 alias appearance="lxappearance"
 # always open gvim in one window
