@@ -130,6 +130,13 @@ set -g __fish_git_prompt_char_invalidstate 'x'
 # TMUX
 alias tmux="tmux -2"
 
+# FUNCTIONS
+
+# #1 = dev spot
+function mount_usb
+    echo Mounting $argv[1]
+    sudo mount $argv[1] -o rw,uid=$USER,gid=$USER
+end
 
 # Colorizing Man page
 set -x LESS_TERMCAP_mb (printf "\033[01;31m")
