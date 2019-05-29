@@ -1,0 +1,17 @@
+#!/bin/bash
+dump_tmux_info() {
+	tmux list-panes -a -F "#{session_activity} #{session_name} #{window_index} #{window_name}#F"
+}
+
+#echo original >> file
+#dump_tmux_info >> file
+#echo sorted >> file
+
+active_tmux_windows() {
+	dump_tmux_info | sort -k1,1nr -u -k3 -u -k2 -u | awk '
+		NR == 1 {max = $1; maxv = sep = ""} 
+		$1 == max {maxv = maxv sep $NF; sep = " "} 
+		END {print maxv}
+	'
+}
+# sort--> unique numbers descending --> unique fields3 

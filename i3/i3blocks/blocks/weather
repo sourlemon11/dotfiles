@@ -1,0 +1,70 @@
+#!/bin/bash
+# Based on http://openweathermap.org/current
+
+API_KEY="e0a9837879cc41345cdf2d22fbce2727"
+
+# Check on http://openweathermap.org/find
+# CITY_ID="${BLOCK_INSTANCE}"
+ZIP="${BLOCK_INSTANCE}"
+
+URGENT_LOWER=0
+URGENT_HIGHER=30
+
+ICON_SUNNY=""
+ICON_CLOUDY=""
+ICON_RAINY=""
+ICON_STORM=""
+ICON_SNOW=""
+ICON_FOG=""
+
+SYMBOL_CELSIUS="℃"
+SYMBOL_FARENHEIT="°F"
+TEMP_UNIT=${SYMBOL_CELSIUS}
+
+# WEATHER_URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&appid=${API_KEY}&units=metric"
+WEATHER_URL="http://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&zip=${ZIP}&units=metric"
+
+WEATHER_INFO=$(wget -qO- "${WEATHER_URL}")
+WEATHER_MAIN=$(echo "${WEATHER_INFO}" | grep -o -e '\"main\":\"[a-Z]*\"' | awk -F ':' '{print $2}' | tr -d '"')
+WEATHER_TEMP=$(echo "${WEATHER_INFO}" | grep -o -e '\"temp\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+
+if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+    case "${TEMP_UNIT}" in
+        ${SYMBOL_CELSIUS})
+            TEMP_UNIT=${SYMBOL_FARENHEIT}
+            ;;
+        ${SYMBOL_FARENHEIT})
+            TEMP_UNIT=${SYMBOL_CELSIUS}
+            ;;
+    esac
+fi
+
+if [[ "${WEATHER_MAIN}" = *Snow* ]]; then
+  echo "${ICON_SNOW} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo "${ICON_SNOW} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo ""
+elif [[ "${WEATHER_MAIN}" = *Rain* ]] || [[ "${WEATHER_MAIN}" = *Drizzle* ]]; then
+  echo "${ICON_RAINY} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo "${ICON_RAINY} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo ""
+elif [[ "${WEATHER_MAIN}" = *Cloud* ]]; then
+  echo "${ICON_CLOUDY} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo "${ICON_CLOUDY} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo ""
+elif [[ "${WEATHER_MAIN}" = *Clear* ]]; then
+  echo "${ICON_SUNNY} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo "${ICON_SUNNY} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo ""
+elif [[ "${WEATHER_MAIN}" = *Fog* ]] || [[ "${WEATHER_MAIN}" = *Mist* ]]; then
+  echo "${ICON_FOG} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo "${ICON_FOG} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo ""
+else
+  echo "${WEATHER_MAIN} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo "${WEATHER_MAIN} ${WEATHER_TEMP}${TEMP_UNIT}"
+  echo ""
+fi
+
+if [[ "${WEATHER_TEMP}" -lt "${URGENT_LOWER}" ]] || [[ "${WEATHER_TEMP}" -gt "${URGENT_HIGHER}" ]]; then
+  exit 33
+fi
