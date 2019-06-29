@@ -135,8 +135,9 @@ This function should only modify configuration layer settings."
        ;; languages
        ;; lua
        emacs-lisp
-       markdown
+       ;; markdown
        c-c++
+       csharp
        sql
        ;; (latex
        ;;  :variables
