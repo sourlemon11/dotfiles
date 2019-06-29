@@ -1,5 +1,5 @@
 (provide '_user-init) ; ~/.config/spacemacs/_user-init.el
-(require '_user-data) ; ~/.config/spacemacs/_user-data.el
+(when (string-equal (window-system) "x") (require '_user-data))
 
 ;; to fix random freezes (find issue inside ~/.emacs.d/.cache/savehist)
 (setq history-length 75)
