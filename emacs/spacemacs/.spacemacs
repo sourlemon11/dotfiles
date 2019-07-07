@@ -1,6 +1,8 @@
 ;;-*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
+;; Todo
+;; atomic-chrome layer
 
 (defun dotspacemacs/layers ()
   "Layer configuration:
@@ -41,6 +43,7 @@ This function should only modify configuration layer settings."
                                       ;; emacs-calfw
                                       ;; highlight-indent-guides
                                       molokai-theme
+                                      atomic-chrome
                                       gruvbox-theme
                                       exec-path-from-shell)
    ;; A list of packages that cannot be updated.
