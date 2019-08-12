@@ -1,10 +1,13 @@
 (provide '_defaults)
 
+(golden-ratio-mode)
+
 (setq
  powerline-default-separator 'bar
  dotspacemacs-line-numbers 'relative
  which-key-idle-delay 0.01
  which-key-idle-secondary-delay 0.01
+ which-key-popup-type 'side-window
  eyebrowse-new-workspace t
  golden-ratio-mode t
  tab-width 2
