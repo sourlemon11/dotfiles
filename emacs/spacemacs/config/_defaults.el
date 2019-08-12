@@ -12,6 +12,7 @@
  golden-ratio-mode t
  tab-width 2
  scroll-margin 5
+ setq golden-ratio-inhibit-functions '((lambda () which-key--buffer))
  truncate-lines nil
  evil-move-beyond-eol nil
  helm-echo-input-in-header-line nil
@@ -36,4 +37,4 @@
 
 (add-to-list 'exec-path "~/.local/include/npm-global/bin")
 (add-to-list 'exec-path "~/.local/bin")
-(add-to-list 'golden-ratio-exclude-buffer-regexp ".*which-key.*")
+(add-to-list 'golden-ratio-exclude-buffer-regexp "*which.*key.*")
