@@ -61,6 +61,7 @@ This function should only modify configuration layer settings."
                                     grizzl
                                     counsel
                                     alert
+                                    highlight-indentation
                                     nlinum
                                     writeroom-mode
                                     smex
@@ -546,7 +547,6 @@ you should place your code here."
 
   (add-hook 'find-file-hook 'rainbow-delimiters-mode-enable)
   (add-hook 'find-file-hook 'spacemacs/toggle-visual-line-navigation-on)
-  (add-hook 'find-file-hook 'highlight-indentation-mode)
 
   (require '_defaults) ;  ~/.config/spacemacs/_defaults
   (require '_movement) ;  ~/.config/spacemacs/_movement
