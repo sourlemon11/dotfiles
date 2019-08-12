@@ -36,3 +36,4 @@
 
 (add-to-list 'exec-path "~/.local/include/npm-global/bin")
 (add-to-list 'exec-path "~/.local/bin")
+(add-to-list 'golden-ratio-exclude-buffer-regexp ".*which-key.*")
