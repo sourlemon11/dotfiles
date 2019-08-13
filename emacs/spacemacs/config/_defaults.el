@@ -12,7 +12,7 @@
  golden-ratio-mode t
  tab-width 2
  scroll-margin 5
- setq golden-ratio-inhibit-functions '((lambda () which-key--buffer))
+ golden-ratio-inhibit-functions '((lambda () which-key--buffer))
  truncate-lines nil
  evil-move-beyond-eol nil
  helm-echo-input-in-header-line nil
