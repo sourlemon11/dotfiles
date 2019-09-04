@@ -23,7 +23,7 @@ set GEM_ROOT $HOME/.gem/ruby/2.5.0/
 set -gx PATH $HOME/.local/include/npm-global/bin/ $PATH
 set -gx PATH $HOME/.autojump/bin $PATH
 set -g TMPDIR $HOME/tmp
-set -gx TERM screen-256color
+set -gx TERM xterm-256color
 
 # Load oh-my-fish configuration. AFTER SETTING PATHS
 source $OMF_PATH/init.fish
