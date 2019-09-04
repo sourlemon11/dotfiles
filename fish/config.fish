@@ -41,7 +41,7 @@ set -g DONE_FILE $TODO_FILE/done.txt
 set -g REPORT_FILE $TODO_DIR/report.txt
 set -g XDG_USER_CONFIG_DIR $HOME/.config
 set -g XDG_MUSIC_DIR $HOME/Media/Music
-set -gx GTAGSLABEL ctags
+set -gx GTAGSLABEL ctags-universal
 export TLDR_COLOR_BLANK="white bold"
 export TLDR_COLOR_NAME="cyan on_grey"
 export TLDR_COLOR_DESCRIPTION="white on_grey"
