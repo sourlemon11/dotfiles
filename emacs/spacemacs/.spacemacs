@@ -174,7 +174,7 @@ This function should only modify configuration layer settings."
        shell-scripts
        (dash
         :variables
-        helm-dash-docset-newpath (expand-file-name "~/.docsets"))
+        dash-docs-docset-newpath (expand-file-name "~/.docsets"))
        ;; (add-to-list 'zeal-at-point-mode-alist '(python-mode . "python"))
        ;; apps
        ;; mu4e
