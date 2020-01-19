@@ -13,19 +13,23 @@
 
 (defun user/scroll-up-lines ()
   (interactive)
-  (scroll-up-line 4))
+  (scroll-up-line 4)
+  (evil-first-non-blank))
 
 (defun user/scroll-down-lines ()
   (interactive)
-  (scroll-down-line 4))
+  (scroll-down-line 4)
+  (evil-first-non-blank))
 
 (defun user/scroll-up-other-window()
   (interactive)
-  (scroll-other-window 4))
+  (scroll-other-window 4)
+  (evil-first-non-blank))
 
 (defun user/scroll-down-other-window()
   (interactive)
-  (scroll-other-window-down 4))
+  (scroll-other-window-down 4)
+  (evil-first-non-blank))
 
 ;; Jumping
 (setq evil-jumps-cross-buffers nil)
@@ -35,10 +39,12 @@
 (setq auto-hscroll-mode nil)
 (defun gcm-scroll-down ()
   (interactive)
-  (scroll-up))
+  (scroll-up)
+  (evil-first-non-blank))
 (defun gcm-scroll-up ()
   (interactive)
-  (scroll-down))
+  (scroll-down)
+  (evil-first-non-blank))
 (global-set-key (kbd "C-d") 'gcm-scroll-down)
 (define-key evil-normal-state-map (kbd "C-d") 'gcm-scroll-down)
 (global-set-key (kbd "C-u") 'gcm-scroll-up)
