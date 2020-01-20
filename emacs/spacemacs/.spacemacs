@@ -201,7 +201,8 @@ This function should only modify configuration layer settings."
                                 (file-name-extension (buffer-file-name))))))
             org-capture-templates-contexts
             '(("f" ((in-mode . "python-mode"))))
-            org-export-backends (quote (ascii html icalendar latex md odt)))
+            org-export-backends (quote (ascii html icalendar latex md odt))
+            )
        ;; Emacs Utilities
        (ranger :variables
                ranger-ignored-extensions '("mkv" "iso" "mp4")
