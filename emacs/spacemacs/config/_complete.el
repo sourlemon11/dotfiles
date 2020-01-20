@@ -5,3 +5,5 @@
 
 ;; yasnippets
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/private/snippets/yasnippet-snippets")
+;; todo
+;; (sp-local-pair 'csharp-mode "{" "}")
