@@ -57,8 +57,8 @@
 (global-set-key (kbd "C-5") 'eyebrowse-switch-to-window-config-5)
 (global-set-key (kbd "C-6") 'eyebrowse-switch-to-window-config-6)
 
-(global-set-key (kbd "C-.") 'other-window)
-(global-set-key (kbd "C-,") 'prev-window)
+;; (global-set-key (kbd "C-.") 'other-window)
+;; (global-set-key (kbd "C-,") 'prev-window)
 (global-set-key (kbd "C-h") 'evil-window-left)
 (global-set-key (kbd "C-j") 'evil-window-down)
 (global-set-key (kbd "C-k") 'evil-window-up)
@@ -68,6 +68,8 @@
 (global-set-key (kbd "C--") 'evil-window-decrease-height)
 ;; resize the windows
 ;; (define-key evil-normal-state-map (kbd "<left>"))
+
+;; After running these modes, run these commands
 
 ;; Custom Bindings From custom functions
 (spacemacs/set-leader-keys "wD" 'user/delete-window-and-buffer)
