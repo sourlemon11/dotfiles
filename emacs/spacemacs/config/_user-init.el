@@ -46,6 +46,7 @@
  js-indent-level 2
 
  exec-path-from-shell-check-startup-files nil
+ global-auto-revert-mode nil
 
  magit-log-arguments (quote ("--graph" "--color" "--decorate"))
  ;; Elfeed
