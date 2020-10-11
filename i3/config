@@ -42,7 +42,7 @@ floating_modifier $alt
 default_orientation horizontal
 workspace_layout tabbed
 new_window pixel 2
-hide_edge_borders smart
+hide_edge_borders none
 
 # rename workspace
 bindsym $alt+c exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
@@ -65,7 +65,7 @@ bindsym $alt+q kill
 # bindsym $alt+space --release exec --no-startup-id "rofi -modi window -show window"
 bindsym $alt+p exec --no-startup-id "rofi -modi drun -show drun"
 bindsym $alt+Shift+p --release exec --no-startup-id "/${HOME}/.local/bin/rofi-pass"
-bindsym $alt+f exec --no-startup-id "rofi -fuzzy -show find -modi find:~/.local/share/rofi/finder.sh"
+bindsym $alt+f exec --no-startup-id "rofi -fuzzy -show find -modi find:/${HOME}/.local/share/rofi/finder.sh"
 bindsym $alt+Shift+s exec "/${HOME}/.local/bin/teiler --screenshot"
 #Bindsym $alt+space exec rofi -show run -font "ubuntu mono 18" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 9 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc "#111111"
 
@@ -75,9 +75,12 @@ bindsym $alt+Shift+s exec "/${HOME}/.local/bin/teiler --screenshot"
 
 # bindsym $alt+d exec --no-startup-id i3-dmenu-desktop
 
-bindsym $sup+period exec "amixer -q sset Master 5%+ unmute"
-bindsym $sup+comma exec "amixer -q sset Master 5%- unmute"
-bindsym $sup+Escape exec "amixer -q sset Master toggle"
+#bindsym $sup+period exec "amixer -q sset Master 5%+ unmute"
+#bindsym $sup+comma exec "amixer -q sset Master 5%- unmute"
+#bindsym $sup+Escape exec "amixer -q sset Master toggle"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute"
+bindsym XF86AudioMute exec "amixer -q sset Master toggle"
 
 # change focus
 bindsym $alt+h focus left
@@ -94,8 +97,8 @@ bindsym $alt+l focus right
 bindsym $alt+Shift+h move left
 bindsym $alt+Shift+j move down
 bindsym $alt+Shift+k move up
-#bindsym $alt+Shift+semicolon move right
 bindsym $alt+Shift+l move right
+#bindsym $alt+Shift+semicolon move right
 bindsym $alt+F2 move scratchpad
 
 # split in vertical orientation
@@ -106,6 +109,7 @@ bindsym $alt+minus split v
 
 # enter fullscreen mode for the focused container
 bindsym $alt+Shift+f fullscreen toggle
+bindsym $alt+Control+f fullscreen toggle global
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $alt+s layout stacking
@@ -161,17 +165,13 @@ bindsym $alt+Shift+r restart
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (Shift+r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
   #bindsym l exec --no-startup-id light-locker-command -l, mode "default"
-  bindsym l exec --no-startup-id ~/.local/bin/i3exit lock, mode "default"
-  bindsym e exec --no-startup-id ~/.local/bin/i3exit logout, mode "default"
-  bindsym s exec --no-startup-id ~/.local/bin/i3exit suspend, mode "default"
-  bindsym h exec --no-startup-id ~/.local/bin/i3exit hibernate, mode "default"
-  bindsym Shift+r exec --no-startup-id ~/.local/bin/i3exit reboot, mode "default"
-  bindsym Shift+s exec --no-startup-id ~/.local/bin/i3exit shutdown, mode "default"
+  bindsym l exec --no-startup-id ~/.local/bin/i3exit lock, exec kill $(pgrep i3-nagbar);mode "default"
+  bindsym e exec --no-startup-id ~/.local/bin/i3exit logout, exec kill $(pgrep i3-nagbar);mode "default"
+  bindsym s exec --no-startup-id ~/.local/bin/i3exit suspend, exec kill $(pgrep i3-nagbar);mode "default"
+  bindsym h exec --no-startup-id ~/.local/bin/i3exit hibernate, exec kill $(pgrep i3-nagbar);mode "default"
+  bindsym Shift+r exec --no-startup-id ~/.local/bin/i3exit reboot, exec kill $(pgrep i3-nagbar);mode "default"
+  bindsym Shift+s exec --no-startup-id ~/.local/bin/i3exit shutdown, exec kill $(pgrep i3-nagbar);mode "default"
 
-# back to normal: Enter or Escape
-  bindsym Return exec kill $(pgrep i3-nagbar); mode "default"
-  bindsym Escape exec kill $(pgrep i3-nagbar); mode "default"
-  bindsym Ctrl+c exec kill $(pgrep i3-nagbar); mode "default"
 }
 bindsym $alt+Shift+e mode "$mode_system" exec "i3-nagbar -m 'System (l) lock, (e) logout, (s) suspend, (h) hibernate, (Shift+r) reboot, (Shift+s) shutdown'"
 
@@ -250,15 +250,15 @@ mode "emacs" {
      bindsym $alt+Ctrl+h workspace prev
      bindsym $alt+Tab workspace back_and_forth
      bindsym $alt+shift+space scratchpad show 
-     bindsym $sup+period exec "amixer -q sset Master 5%+ unmute"
-     bindsym $sup+comma exec "amixer -q sset Master 5%- unmute"
+     # bindsym $sup+period exec "amixer -q sset Master 5%+ unmute"
+     # bindsym $sup+comma exec "amixer -q sset Master 5%- unmute"
      # Control pianobar through fifo file ctl
-     bindsym $sup+minus exec "echo '-' > ~/.config/pianobar/ctl"
-     bindsym $sup+equal exec "echo '+' > ~/.config/pianobar/ctl"
-     bindsym $sup+n exec "echo 'n' > ~/.config/pianobar/ctl"
-     bindsym $sup+p exec "echo 'p' > ~/.config/pianobar/ctl"
+     # bindsym $sup+minus exec "echo '-' > ~/.config/pianobar/ctl"
+     # bindsym $sup+equal exec "echo '+' > ~/.config/pianobar/ctl"
+     # bindsym $sup+n exec "echo 'n' > ~/.config/pianobar/ctl"
+     # bindsym $sup+p exec "echo 'p' > ~/.config/pianobar/ctl"
      bindsym $sup+b exec tmux send-keys -t:1 music pianobar ENTER
-     bindsym $sup+q exec "echo 'q' > ~/.config/pianobar/ctl"
+     # bindsym $sup+q exec "echo 'q' > ~/.config/pianobar/ctl"
      # bindsym $alt+Return exec $term
      bindsym $alt+q kill
 }
@@ -277,19 +277,26 @@ mode "emacs" {
 # bindsym $sup+n exec tmux send-keys -t music n 
 # bindsym $sup+p exec tmux send-keys -t music p 
 # bindsym $sup+q exec tmux send-keys -t music q
+bindsym $alt+less exec "~/.local/bin/spotify-control previous"
+bindsym $alt+greater exec "~/.local/bin/spotify-control next"
+bindsym $alt+slash exec "~/.local/bin/spotify-control playpause"
 
 bindsym $sup+i exec xcalib -invert -alter
+
+# Multi-Screens
+# turn off second monitor
+
 
 ##### ASSIGNING PROGRAMS TO WORKSPACES #####
 # Fancy names for workspaces
 set $w1 1: web
-set $w2 2: emacs
+set $w2 2: prog
 set $w3 3: term
 set $w4 4: docs
 set $w5 5: email
 set $w6 6: CAD/Emu
 set $w7 7: social
-set $w8 8
+set $w8 8: work
 set $w9 9
 set $w10 10
 
@@ -299,16 +306,18 @@ assign [class="^qutebrowser"] $w1
 assign [class="^Firefox"] $w1
 assign [class="discord"] $w1
 assign [class="^Emacs"] $w2
+assign [class="QtCreator"] $w2
 # assign [class="^St"] $w3
 #assign [class="^Gvim$"] $w3
 assign [instance="libreoffice"] $w4
 assign [class="^Fossamail$"] $w5
-assign [class="^Thunderbird"] $w5
+assign [class="^thunderbird"] $w5
 assign [class="^Steam|^Dwarf"] $w5
 #assign [class="^Xfce4-terminal$"] $w3
 assign [class="FreeCAD"] $w6
 assign [instance="openscad"] $w6
 assign [class="Wine"] $w6
+assign [class="xfreerdp"] $w8
 
 # Floating windows
 #for_window [class="(?i)xfce4-terminal"] floating enable
@@ -321,6 +330,7 @@ for_window [class="^Xev"] floating enable
 # for_window [class="^mpv"] split vertical
 for_window [class="^Spotify"] move scratchpad, resize set 1500px 800px, move absolute position center
 for_window [class="Matplotlib"] floating enable, resize set 800px 800px, move position center
+for_window [instance="^origin"] floating enable
 bindsym $alt+shift+space scratchpad show 
 
 bindsym Control+Shift+z [class="^.*"] border toggle
@@ -338,7 +348,8 @@ bindsym Control+Shift+z [class="^.*"] border toggle
 
 ##### AUTOSTARTING PROGRAMS #####
 # exec --no-startup-id ulauncher
-# exec ~/.local/bin/firefox
+exec ~/.local/bin/firefox
+# exec --no-startup-id i3-msg 'workspace 3: term'
 exec --no-startup-id i3-msg 'workspace 3: term; exec /usr/bin/sakura'
 exec --no-startup-id i3-msg 'workspace 1: web'
 
@@ -361,7 +372,6 @@ client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
 client.background       #ffffff
 
 
