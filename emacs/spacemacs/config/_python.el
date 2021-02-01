@@ -11,5 +11,9 @@
   (define-key inferior-python-mode-map (kbd "C-k") 'evil-window-up)
   (define-key inferior-python-mode-map (kbd "C-l") 'evil-window-right))
 
+(setq
+ flycheck-python-pycompile-executable "/usr/bin/python3.7"
+ python-shell-interpreter "/usr/bin/python3.7"
+)
 
 (add-hook 'python-mode-hook 'user/python-movement)
