@@ -24,6 +24,8 @@ set -gx PATH $HOME/.local/include/npm-global/bin/ $PATH
 set -gx PATH $HOME/.autojump/bin $PATH
 set -g TMPDIR $HOME/tmp
 set -gx TERM xterm-256color
+set -gx PYENV_ROOT $HOME/.pyenv
+set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 
 # Load oh-my-fish configuration. AFTER SETTING PATHS
 source $OMF_PATH/init.fish
