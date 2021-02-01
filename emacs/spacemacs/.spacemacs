@@ -150,6 +150,7 @@ This function should only modify configuration layer settings."
        colors
        (python
         :variables
+        python-backend 'anaconda
         python-enable-yapf-format-on-save t
         python-sort-imports-on-save t
         flycheck-python-pycompile-executable "python3"
