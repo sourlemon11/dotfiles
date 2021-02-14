@@ -98,6 +98,10 @@ bindsym $alt+Shift+h move left
 bindsym $alt+Shift+j move down
 bindsym $alt+Shift+k move up
 bindsym $alt+Shift+l move right
+
+# move workspace to another screen
+bindsym $alt+$sup+Ctrl+Shift+h move workspace to output left
+bindsym $alt+$sup+Ctrl+Shift+l move workspace to output right
 #bindsym $alt+Shift+semicolon move right
 bindsym $alt+F2 move scratchpad
 
