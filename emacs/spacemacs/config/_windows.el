@@ -41,6 +41,8 @@
 (with-eval-after-load 'golden-ratio
   (add-to-list 'golden-ratio-exclude-buffer-regexp ".*magit.*popup"))
 
+(setq
+ golden-ratio-auto-scale t)
 
 (defun user/delete-window-and-buffer()
   (interactive)
