@@ -352,7 +352,8 @@ bindsym Control+Shift+z [class="^.*"] border toggle
 
 ##### AUTOSTARTING PROGRAMS #####
 # exec --no-startup-id ulauncher
-exec ~/.local/bin/firefox
+exec /usr/bin/firefox
+exec /usr/bin/discord
 # exec --no-startup-id i3-msg 'workspace 3: term'
 exec --no-startup-id i3-msg 'workspace 3: term; exec /usr/bin/sakura'
 exec --no-startup-id i3-msg 'workspace 1: web'
