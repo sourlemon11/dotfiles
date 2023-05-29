@@ -22,6 +22,7 @@ set -gx PATH $HOME/.gem/ruby/2.5.0/bin $PATH
 set GEM_ROOT $HOME/.gem/ruby/2.5.0/
 set -gx PATH $HOME/.local/include/npm-global/bin/ $PATH
 set -gx PATH $HOME/.autojump/bin $PATH
+set -gx PATH /usr/local/go/bin $PATH
 set -g TMPDIR $HOME/tmp
 set -gx TERM xterm-256color
 set -gx PYENV_ROOT $HOME/.pyenv
@@ -125,7 +126,7 @@ abbr -a gbra "git branch --all"
 abbr -a gme "git merge"
 abbr -a gcr "git cherry-pick"
 abbr -a gta "git tag"
-abbr -a yt "mpsyt"
+abbr -a yt "yt"
 # git prompt settings
 set -g __fish_git_prompt_char_dirtystate '+'
 set -g __fish_git_prompt_char_invalidstate 'x'
@@ -152,5 +153,6 @@ set -x LESS_TERMCAP_us (printf "\033[01;32m")
 
 # pyenv init
 if command -v pyenv 1>/dev/null 2>&1
+    status is-login; and pyenv init --path | source
   pyenv init - | source
 end
