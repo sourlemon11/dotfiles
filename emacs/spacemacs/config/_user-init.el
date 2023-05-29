@@ -53,4 +53,5 @@
  elfeed-search-filter "@1-week-ago +unread "
  global-prettify-symbols-mode t
 
- golden-ratio--value 1.60)
+ golden-ratio--value 1.60
+ vc-follow-symlinks t)

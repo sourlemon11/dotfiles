@@ -22,7 +22,8 @@
  ;; company-minimum-prefix-length 4
  browse-url-browser-function 'browse-url-generic
  browse-url-generic-program "firefox"
- shell-default-shell 'term
+ shell-default-shell 'eshell
+ shell-default-term-shell "/bin/bash"
  mm-text-html-renderer 'w3m
  auto-fill-function 'do-auto-fill
  evil-want-Y-yank-to-eol t
@@ -30,8 +31,8 @@
  ;; Flycheck
  flycheck-check-syntax-automatically '(save mode-enabled)
  ispell-program-name "/usr/bin/hunspell"
- ispell-dictionary-alist '(("english" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil
-                            nil utf-8))
+ ;; ispell-dictionary-alist '(("english" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil
+ ;;                            nil utf-8))
  ispell-dictionary "en_US")
  ;; ispell-dictionary-alist "en_US"
 

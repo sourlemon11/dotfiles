@@ -43,6 +43,7 @@ values."
                                       ;; highlight-indent-guides
                                       molokai-theme
                                       gruvbox-theme
+                                      clips-mode
                                       exec-path-from-shell)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -105,7 +106,8 @@ values."
         ;; magit-log-select-margin (list (t age-abbreviated magit-log-margin-width t 10))
         magit-refs-local-branch-format "%4c")
        ;; :config
-       ;; (define-key magit-mode-map (kbd "M-w") 'spacemacs/rotate-windows)
+       ;
+; (define-key magit-mode-map (kbd "M-w") 'spacemacs/rotate-windows)
        ;; ("C-h" . evil-window-left)
        ;; ("C-k" . evil-window-up)
        ;; ("M-w" . spacemacs/rotate-windows)
@@ -136,7 +138,7 @@ values."
        emacs-lisp
        ;; markdown
        c-c++
-       ;; csharp
+       (csharp :variables csharp-backend 'omnisharp)
        ;; sql
        ;; (latex
        ;;  :variables
@@ -144,7 +146,7 @@ values."
        ;;  TeX-view-program-selection '((output-pdf "Zathura" "zathura %o" "zathura")))
        javascript
        ;; rust
-       ;; java
+       java
        ;; lua
        yaml
        colors
@@ -159,14 +161,15 @@ values."
         python-test-runner 'pytest
         python-indent-offset 4
         :config
-        (define-key python-mode-map (kbd "C-j") 'evil-window-down)
-        (define-key python-mode-map (kbd "C-h") 'evil-window-left)
-        (define-key python-mode-map (kbd "C-k") 'evil-window-up)
-        (define-key python-mode-map (kbd "C-l") 'evil-window-right)
-        (define-key inferior-python-mode-map (kbd "C-j") 'evil-window-down)
-        (define-key inferior-python-mode-map (kbd "C-h") 'evil-window-left)
-        (define-key inferior-python-mode-map (kbd "C-k") 'evil-window-up)
-        (define-key inferior-python-mode-map (kbd "C-l") 'evil-window-right))
+        ;; (define-key python-mode-map (kbd "C-j") 'evil-window-down)
+        ;; (define-key python-mode-map (kbd "C-h") 'evil-window-left)
+        ;; (define-key python-mode-map (kbd "C-k") 'evil-window-up)
+        ;; (define-key python-mode-map (kbd "C-l") 'evil-window-right)
+        ;; (define-key inferior-python-mode-map (kbd "C-j") 'evil-window-down)
+        ;; (define-key inferior-python-mode-map (kbd "C-h") 'evil-window-left)
+        ;; (define-key inferior-python-mode-map (kbd "C-k") 'evil-window-up)
+        ;; (define-key inferior-python-mode-map (kbd "C-l") 'evil-window-right)
+        )
        html
        ;; csv
        shell-scripts
@@ -416,6 +419,7 @@ values."
    dotspacemacs-show-transient-state-color-guide t
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
    dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-theme 'spacemacs
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
@@ -503,14 +507,6 @@ you should place your code here."
   (require '_languages) ; ~/.config/spacemacs/_languages
   )
 
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
-This is an auto-generated function, do not modify its content directly, use
-Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
-
-
-)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -526,3 +522,25 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#080808" "#d70000" "#67b11d" "#875f00" "#268bd2" "#af00df" "#00ffff" "#b2b2b2"])
+ '(evil-want-Y-yank-to-eol t)
+ '(package-selected-packages
+   '(mvn meghanada maven-test-mode groovy-mode groovy-imports pcache org-category-capture alert log4e gntp magit-popup magit skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode dash-docs haml-mode autothemer gitignore-mode fringe-helper git-gutter+ git-gutter git-commit with-editor transient flyspell-correct flycheck web-completion-data pos-tip smeargle scss-mode org-mime highlight-indentation flx-ido disaster zeal-at-point yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package undo-tree toml-mode toc-org tern tagedit systemd stickyfunc-enhance srefactor sql-indent spaceline slim-mode shell-pop sass-mode restart-emacs ranger rainbow-mode rainbow-identifiers rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode pip-requirements persp-mode pcre2el paradox orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file omnisharp neotree multi-term move-text molokai-theme magit-gitflow macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint json-mode js2-refactor js-doc insert-shebang indent-guide imenu-list hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-dash helm-css-scss helm-company helm-c-yasnippet helm-ag gruvbox-theme google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ ggtags fuzzy flyspell-correct-helm flycheck-rust flycheck-pos-tip fish-mode fill-column-indicator fasd fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav elfeed-web elfeed-org elfeed-goodies dumb-jump dracula-theme diminish diff-hl define-word cython-mode company-web company-statistics company-shell company-quickhelp company-c-headers company-anaconda column-enforce-mode color-identifiers-mode coffee-mode cmake-mode clean-aindent-mode clang-format cargo auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)

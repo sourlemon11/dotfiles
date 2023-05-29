@@ -1,13 +1,13 @@
 (provide '_windows)
-(if (eq system-type 'gnu/linux)
-    (progn
-     (require 'i3 (concat (file-name-directory (or load-file-name
-                                                   buffer-file-name))
-                          "i3-emacs/i3.el"))
-     (require 'i3-integration (concat (file-name-directory (or load-file-name
-                                                               buffer-file-name))
-                                      "i3-emacs/i3-integration"))
-     (i3-one-window-per-frame-mode-on)))
+;; (if (eq system-type 'gnu/linux)
+;;     (progn
+;;      (require 'i3 (concat (file-name-directory (or load-file-name
+;;                                                    buffer-file-name))
+;;                           "i3-emacs/i3.el"))
+;;      (require 'i3-integration (concat (file-name-directory (or load-file-name
+;;                                                                buffer-file-name))
+;;                                       "i3-emacs/i3-integration"))
+;;      (i3-one-window-per-frame-mode-on)))
 
 ;; (defmacro user/window-keys-in-mode-map (x-mode)
 ;;   "Overides C-hjkl keybindings in other modes. argument is either the mode"

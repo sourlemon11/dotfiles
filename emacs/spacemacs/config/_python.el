@@ -16,3 +16,4 @@
  python-shell-interpreter "/usr/bin/python3.7")
 
 (add-hook 'python-mode-hook 'user/python-movement)
+(add-hook 'python-mode-hook 'undo-tree-mode)
