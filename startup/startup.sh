@@ -2,7 +2,7 @@
 # included in Session and Startup for Xfce
 
 feh --bg-fill ~/Pictures/Desktop.Wallpaper/mob-psycho-100.jpg
-source /home/mitchell/.startup/touchpad.sh
+bash /home/mitchell/.startup/touchpad.sh
 
 #function redshift () {
 #    echo "RUNNING REDSHIFT"
@@ -11,25 +11,26 @@ source /home/mitchell/.startup/touchpad.sh
 
 function run_once () {
     echo "---- run once ---- "
-    local -n prog_ref = "$1"
+    declare prog_ref="$1"
     echo "$1[@$1]"
     if [ -z "$(pgrep $1)" ]; then
         echo "$1"
         "$1" 1>&2 &
     fi
 }
-echo "declare"
+echo "declare..."
 declare -A run_once_programs=(
     ["spotify"]="spotify",
     ["dropbox"]="dropboxd",
-    ["redshift"]="redshift",
+    ["redshift"]="redshift -l 40.15472109866484:-75.88790502627172",
     ["nm-applet"]="nm-applet",
     ["xfce4-power-manager"]="xfce4-power-manager"
     ["blueman-applet"]="blueman-applet"
 )
 echo ${!run_once_programs}
 for prog_name in "${!run_once_programs[@]}"; do
-    echo "for" $prog
-    run_once "${prog_name[$cmd]}"
+    echo "for..." "${prog_name}"
+    run_once "${prog_name[${prog_name}]}"
+    echo "-------next--------"
 done
 #source ${HOME}/.startup/dbus

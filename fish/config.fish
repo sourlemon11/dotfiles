@@ -22,6 +22,7 @@ set -gx PATH $HOME/.gem/ruby/2.5.0/bin $PATH
 set GEM_ROOT $HOME/.gem/ruby/2.5.0/
 set -gx PATH $HOME/.local/include/npm-global/bin/ $PATH
 set -gx PATH $HOME/.autojump/bin $PATH
+set -gx PATH $HOME/.juliaup/bin $PATH
 set -gx PATH /usr/local/go/bin $PATH
 set -g TMPDIR $HOME/tmp
 set -gx TERM xterm-256color

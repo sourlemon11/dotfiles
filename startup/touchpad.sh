@@ -13,7 +13,7 @@ setxkbmap -layout us-caps-ctrl-swap
 #xmodmap -e "keycode 135 = Super_R"
 #echo 'Right-click menu key is now Super_R'
 #xmodmap -e "keycode 133 = Alt_R"
-if [ -z "$(lsusb -tv | grep -i "winbond")" ]; then
+if [[ -z "$(lsusb -tv | grep -i "winbond")" ]]; then
     synclient LeftEdge=1767
     synclient RightEdge=5397
     synclient TopEdge=1637

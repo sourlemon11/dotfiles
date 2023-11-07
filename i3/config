@@ -63,9 +63,9 @@ bindsym $alt+q kill
 
 # start dmenu (a program launcher)
 # bindsym $alt+space --release exec --no-startup-id "rofi -modi window -show window"
-bindsym $alt+p exec --no-startup-id "rofi -modi drun -show drun"
+bindsym $alt+p exec --no-startup-id "rofi -theme Arc-Dark -modi drun -show drun"
 bindsym $alt+Shift+p --release exec --no-startup-id "/${HOME}/.local/bin/rofi-pass"
-bindsym $alt+f exec --no-startup-id "rofi -fuzzy -show find -modi find:/${HOME}/.local/share/rofi/finder.sh"
+bindsym $alt+f exec --no-startup-id "rofi -theme Arc-Dark -fuzzy -show find -modi find:/${HOME}/.local/share/rofi/finder.sh"
 bindsym $alt+Shift+s exec "/${HOME}/.local/bin/teiler --screenshot"
 #Bindsym $alt+space exec rofi -show run -font "ubuntu mono 18" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 9 -padding 20 -separator-style none -hide-scrollbar -bw 4 -bc "#111111"
 
@@ -316,7 +316,7 @@ assign [class="QtCreator"] $w2
 assign [instance="libreoffice"] $w4
 assign [class="^Fossamail$"] $w5
 assign [class="^thunderbird"] $w5
-assign [class="^Steam|^Dwarf"] $w5
+assign [class="^steam|^Dwarf"] $w5
 #assign [class="^Xfce4-terminal$"] $w3
 assign [class="FreeCAD"] $w6
 assign [instance="openscad"] $w6

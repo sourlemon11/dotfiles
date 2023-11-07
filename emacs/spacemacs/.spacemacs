@@ -99,6 +99,7 @@ values."
         :variables
         helm-ag-command-option "-S"
         :config)
+       spacemacs-editing
        gtags
        (git
         :variables
