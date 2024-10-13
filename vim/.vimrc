@@ -15,6 +15,12 @@
 " TIPS
 " :verbose to find what is mapped to what
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+	silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 """ Pathogen
 "let default_disabled = ['YouCompleteMe', 'vim-indent-guides', 'dein.vim', 'rainbow_parentheses', 'ultisnips']
 "if has('nvim')
@@ -85,15 +91,6 @@ set breakindent "" smart wraps on next line
 set scrolloff=5 "" min # of lines before/after cursor
 "" Store swap files in fixed location, not current directory.
 set dir=~/.vim/backup//,/var/tmp//,/tmp//,.
-" Tell vim to remember certain things when we exit
-"  '10  :  marks will be remembered for up to 10 previously edited files
-"  "100 :  will save up to 100 lines for each register
-"  :20  :  up to 20 lines of command-line history will be remembered
-"  %    :  saves and restores the buffer list
-"  n... :  where to save the viminfo files
-if !has("nvim")
-  set viminfo='150,\"100,:200,~/.vim/viminfo/.viminfo
-endif
 set shell=/bin/bash
 set foldmethod=indent
 set foldnestmax=3
@@ -164,12 +161,21 @@ augroup code
         \ endif
 augroup END
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""" PLUGINS """"""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if &compatible
   set nocompatible
 endif
+" Tell vim to remember certain things when we exit
+"  '10  :  marks will be remembered for up to 10 previously edited files
+"  "100 :  will save up to 100 lines for each register
+"  :20  :  up to 20 lines of command-line history will be remembered
+"  %    :  saves and restores the buffer list
+"  n... :  where to save the viminfo files
+if !has("nvim")
+  set viminfo='150,\"100,:200,n~/.vim/viminfo/
+endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""" PLUGINS """"""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set runtimepath+='~/.vim/autoload/dein.vim','~/.local/bin'
 let $PATH .= ':~/.local/bin'
 
